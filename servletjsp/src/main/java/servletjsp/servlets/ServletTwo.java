@@ -16,6 +16,6 @@ public class ServletTwo extends HttpServlet{
 		System.out.println("Hi I Am Servlet Two");
 		RequestDispatcher requestDispatcher = req.getRequestDispatcher("servletOne");
 		resp.getWriter().println("<h1>Hi I Am Servlet Two.</h1>");
-		requestDispatcher.include(req, resp);
+		requestDispatcher.forward(req, resp);
 	}
 }
