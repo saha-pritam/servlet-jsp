@@ -11,8 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 public class ServletOne extends HttpServlet{
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("Hi I Am Servlet One");
-		resp.getWriter().println("<h1>Hi I Am Servlet One.</h1>");
+		req.setAttribute("addition", Integer.parseInt(req.getParameter("num1"))+Integer.parseInt(req.getParameter("num2")));
+		req.getRequestDispatcher("servletTwo").forward(req, resp);
 	}
 }

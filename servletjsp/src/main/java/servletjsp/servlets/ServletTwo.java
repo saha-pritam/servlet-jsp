@@ -2,7 +2,6 @@ package servletjsp.servlets;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,10 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 public class ServletTwo extends HttpServlet{
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("Hi I Am Servlet Two");
-		RequestDispatcher requestDispatcher = req.getRequestDispatcher("servletOne");
-		resp.getWriter().println("<h1>Hi I Am Servlet Two.</h1>");
-		requestDispatcher.forward(req, resp);
+		req.setAttribute("multiplication", Integer.parseInt(req.getParameter("num1"))*Integer.parseInt(req.getParameter("num2")));
+		req.getRequestDispatcher("servletThree").forward(req, resp);
 	}
 }
