@@ -10,6 +10,11 @@ import javax.servlet.ServletResponse;
 
 public class MyServlet implements Servlet{
 	
+	
+	public MyServlet() {
+		System.out.println("Hi I am constructor.");
+	}
+
 	@Override
 	public void destroy() {
 		System.out.println("Hi I am destroy().");
