@@ -35,6 +35,7 @@ public class MyServlet implements Servlet{
 
 	@Override
 	public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
+		res.getWriter().print("<h1>This is my first servlet.</h1>");
 		System.out.println("Hi I am service().");
 	}
 }
