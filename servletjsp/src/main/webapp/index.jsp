@@ -13,17 +13,16 @@
 		<h1>Home Page</h1>
 	</div>
 	<div class="container">
-		<form action="login" method="post">
+		<form action="result.jsp" method="post">
 			<div class="form-group">
-				<label for="exampleInputEmail1">Email address</label> 
-				<input type="email" class="form-control" placeholder="Enter email" name="user_email"> 
-				<small class="form-text text-muted">We'll never share your email with anyone else.</small>
+				<label>Enter First Number</label> 
+				<input type="text" class="form-control" placeholder="Enter First Number" name="num1"> 
 			</div>
-			<div class="form-group">
-				<label for="exampleInputPassword1">Password</label> 
-				<input type="password" class="form-control"	placeholder="Password" name="user_password">
+			<div class="form-group mt-3">
+				<label>Enter Second Number</label> 
+				<input type="text" class="form-control" placeholder="Enter Second Number" name="num2"> 
 			</div>
-			<button type="submit" class="btn btn-primary mt-2">Login</button>
+			<button type="submit" class="btn btn-primary mt-3">Calculate</button>
 		</form>
 	</div>
 
