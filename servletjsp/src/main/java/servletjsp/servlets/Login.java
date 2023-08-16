@@ -13,6 +13,9 @@ public class Login extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.getWriter().print("<h1>Hi "+req.getParameter("user_email")+" you have successfully logged in.</h1>");
-		resp.getWriter().print("<a href=\"servlet?user_email="+req.getParameter("user_email")+"\">Go To Next Page</a>");
+		resp.getWriter().print("<form method=\"post\" action=\"servlet\">");
+		resp.getWriter().print("<input type=\"email\" hidden name=\"user_email\" value=\""+req.getParameter("user_email")+"\">");
+		resp.getWriter().print("<button>Go To Next Page</button>");
+		resp.getWriter().print("</form>");
 	}
 }
