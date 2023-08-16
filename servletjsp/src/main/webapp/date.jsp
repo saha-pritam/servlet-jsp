@@ -1,3 +1,6 @@
+<!-- Page directive with some of the attributes -->
+<%@page import="java.util.Date"%>
+
 <html>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
@@ -10,8 +13,7 @@
 	crossorigin="anonymous"></script>
 <body style="background: #FBFCF8">
 	<div class="container text-center">
-		<h1>Home Page</h1>
-		<%@ include file="date.jsp" %>
+		<h1>Hi This Date <%=new Date()%> Is Coming From date.jsp page.</h1>
 	</div>
 </body>
 </html>
