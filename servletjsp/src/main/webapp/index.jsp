@@ -9,14 +9,23 @@
 	integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
 	crossorigin="anonymous"></script>
 <body style="background: #FBFCF8">
-	<div>
+	<div class="container text-center">
 		<h1>Home Page</h1>
 	</div>
-	<div>
-		<a href="servletOne">Go To Servlet One</a>
+	<div class="container">
+		<form action="login" method="post">
+			<div class="form-group">
+				<label for="exampleInputEmail1">Email address</label> 
+				<input type="email" class="form-control" placeholder="Enter email" name="user_email"> 
+				<small class="form-text text-muted">We'll never share your email with anyone else.</small>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputPassword1">Password</label> 
+				<input type="password" class="form-control"	placeholder="Password" name="user_password">
+			</div>
+			<button type="submit" class="btn btn-primary mt-2">Login</button>
+		</form>
 	</div>
-	<div>
-		<a href="servletTwo">Go To Servlet Two</a>
-	</div>
+
 </body>
 </html>

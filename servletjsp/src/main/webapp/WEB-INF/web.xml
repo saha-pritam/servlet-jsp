@@ -4,23 +4,4 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-  
-  <servlet>
-  	<servlet-name>ServletTwo</servlet-name>
-  	<servlet-class>servletjsp.servlets.ServletTwo</servlet-class>
-  	<init-param>
-  		<param-name>paramA</param-name>
-  		<param-value>Pritam</param-value>
-  	</init-param>
-  	
-  	<init-param>
-  		<param-name>paramB</param-name>
-  		<param-value>Saha</param-value>
-  	</init-param>
-  </servlet>
-  
-  <servlet-mapping>
-  	<servlet-name>ServletTwo</servlet-name>
-  	<url-pattern>/servletTwo</url-pattern>
-  </servlet-mapping>
 </web-app>
