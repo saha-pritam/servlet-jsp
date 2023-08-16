@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ page isELIgnored="false"%>
 <html>
 <link
@@ -12,82 +13,93 @@
 	crossorigin="anonymous"></script>
 <body style="background: #FBFCF8">
 	<div class="container text-center">
-		<h1>Core Tags Demo</h1>
+		<h1>JSTL Functions Demo</h1>
 
-		<!-- Set tag demo -->
-		<c:set var="x" value="100" />
+		<c:set var="x" value="Pritam" />
+
+		<!-- Demo of contains function -->
+		<h4>
+			<c:out value="Pritam contains rita :- ${fn:contains(x,'rita')}"></c:out>
+		</h4>
+		<h4>
+			<c:out value="Pritam contains RitA :- ${fn:contains(x,'RitA')}"></c:out>
+		</h4>
 		<hr>
 
-		<!-- Out tag demo for variable -->
-		<c:out value="${x}" />
+		<!-- Demo of contains Ignore Case function -->
+		<h4>
+			<c:out
+				value="Pritam contains RitA :- ${fn:containsIgnoreCase(x,'RitA')}"></c:out>
+		</h4>
+		<h4>
+			<c:out value="Pritam contains RitAX :- ${fn:contains(x,'RitAX')}"></c:out>
+		</h4>
 		<hr>
 
-		<!-- Out tag demo for literal -->
-		<c:out value="Pritam" />
+		<!-- Demo of starts with function -->
+		<h4>
+			<c:out value="Pritam starts with Pr :- ${fn:startsWith(x,'Pr')}"></c:out>
+		</h4>
+		<h4>
+			<c:out value="Pritam starts with ri :- ${fn:startsWith(x,'ri')}"></c:out>
+		</h4>
 		<hr>
 
-		<!-- Out tag demo for expression -->
-		<c:out value="${2+2}" />
+		<!-- Demo of ends with function		 -->
+		<h4>
+			<c:out value="Pritam ends with am :- ${fn:endsWith(x,'am')}"></c:out>
+		</h4>
+		<h4>
+			<c:out value="Pritam ends with at :- ${fn:endsWith(x,'at')}"></c:out>
+		</h4>
 		<hr>
 
-		<!-- Out tag demo for default -->
-		<c:out value="${y}" default="Y is not present" />
+		<!-- Demo of index Of function -->
+		<h4>
+			<c:out value="Index of i in Pritam :- ${fn:indexOf(x,'i')}"></c:out>
+		</h4>
 		<hr>
 
-		<!-- Remove tag demo -->
-		<c:remove var="x" />
-		<c:out value="${x}" default="x is not present" />
+		<!-- Demo of length function -->
+		<h4>
+			<c:out value="Length of Pritam :- ${fn:length(x)}"></c:out>
+		</h4>
 		<hr>
 
-		<!-- If tag demo -->
-		<c:set var="x" value="102" />
-		<c:if test="${x%2==0}">
-			x is even
-		</c:if>
-		<c:if test="${x%2==1}">
-			x is odd
-		</c:if>
+		<!-- Demo of replace function -->
+		<h4>
+			<c:out
+				value="Replacing i in Pritam with * :- ${fn:replace(x,'i','*')}"></c:out>
+		</h4>
 		<hr>
 
-		<!-- Choose, When, Otherwise tag demo -->
-		<c:set var="x" value="-20" />
-		<c:choose>
-			<c:when test="${x<0}">
-				x is -ve
-			</c:when>
-			<c:when test="${x>0}">
-				x is +ve
-			</c:when>
-			<c:otherwise>
-				zero
-			</c:otherwise>
-		</c:choose>
+		<!-- Demo of to Upper Case function -->
+		<h4>
+			<c:out value="Pritam in uppercase :- ${fn:toUpperCase(x)}"></c:out>
+		</h4>
 		<hr>
 
-		<!-- For Each Tag Demo -->
-		<c:forEach var="i" begin="1" end="10" step="1">
-			<p>
-				<c:out value="2 X ${i} = ${2*i}" />
-			</p>
+		<!-- Demo of to Lower Case Function function -->
+		<h4>
+			<c:out value="Pritam in lowercase :- ${fn:toLowerCase(x)}"></c:out>
+		</h4>
+		<hr>
+
+		<!-- Demo of Substring Function -->
+		<h4>
+			<c:out
+				value="Substring of Pritam from 1 to 4 :- ${fn:substring(x,1,4)}"></c:out>
+		</h4>
+		<hr>
+
+		<!-- Demo of split function -->
+		<c:set var="x" value="Pritam-Basudev-Subha" />
+		<c:forEach items="${fn:split(x,'-')}" var="i">
+			<h4>
+				<c:out value="${i}" />
+			</h4>
 		</c:forEach>
-		<hr>
 
-		<!-- For Token Tag Deno -->
-		<c:forTokens items="Pritam:Aditya:Sagar:Gunjan" delims=":" var="i">
-			<p><c:out value="${i}" /></p>
-		</c:forTokens>
-		<hr>
-
-		<!-- Catch tag demo -->
-		<c:catch var="exp">
-			<%=2/0 %>
-		</c:catch>
-		<c:if test="${exp!=null }">
-			<c:out value="${exp}"/>
-		</c:if>
-		<hr>
-		
-		<a href="page.jsp">Go To page.jsp</a>
 	</div>
 </body>
 </html>
