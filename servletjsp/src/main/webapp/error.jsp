@@ -10,5 +10,6 @@
 </head>
 <body>
 <h4>An error occurred</h4>
+<h4><%=exception %></h4>
 </body>
 </html>
