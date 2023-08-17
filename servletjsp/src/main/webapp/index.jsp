@@ -15,7 +15,7 @@
 	<div class="container text-center">
 		<h4>Page Starting</h4>
 		<customTag:myCustomTagOne>
-			<p>This is the body</p>
+			<p>This is the body with a random value :- <%=Math.random() %></p>
 		</customTag:myCustomTagOne>
 		<h4>Page Ending</h4>
 	</div>

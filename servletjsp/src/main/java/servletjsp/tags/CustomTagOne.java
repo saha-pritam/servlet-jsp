@@ -10,13 +10,7 @@ public class CustomTagOne extends TagSupport {
 
 	@Override
 	public int doAfterBody() throws JspException {
-		JspWriter out = pageContext.getOut();
-		try {
-			out.print("<h4>I am doAfterBody() method </h4>");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return EVAL_PAGE;
+		return EVAL_BODY_AGAIN;
 	}
 
 	@Override
