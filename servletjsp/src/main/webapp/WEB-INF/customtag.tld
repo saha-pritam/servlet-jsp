@@ -14,4 +14,20 @@
 		<name>myCustomTagOne</name>
 		<tag-class>servletjsp.tags.CustomTagOne</tag-class>
 	</tag>
+
+	<tag>
+		<name>myCustomTagTwo</name>
+		<tag-class>servletjsp.tags.CustomTagTwo</tag-class>
+		<attribute>
+			<name>x</name>
+			<required>true</required>
+			<type>int</type>
+		</attribute>
+		
+		<attribute>
+			<name>y</name>
+			<required>true</required>
+			<type>int</type>
+		</attribute>
+	</tag>
 </taglib>  
