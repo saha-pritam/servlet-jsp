@@ -38,7 +38,7 @@ public class CustomTagOne extends TagSupport {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return EVAL_BODY_INCLUDE;
+		return SKIP_BODY;
 	}
 
 }
