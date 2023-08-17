@@ -1,6 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <%@ page isELIgnored="false"%>
 <html>
 <link
@@ -14,48 +13,121 @@
 	crossorigin="anonymous"></script>
 <body style="background: #FBFCF8">
 	<div class="container text-center">
-		<h1>JSTL Formatting Tags Demo</h1>
+		<h1>JSTL SQL Tags Demo</h1>
 
-		<c:set var="x" value="123456.123456789" />
+		<sql:setDataSource var="ds"
+			url="jdbc:mysql://localhost:3306/servletjsp" user="root"
+			password="9er$Y%F49yD4" driver="com.mysql.cj.jdbc.Driver" />
 
-		<!-- Format Number Demo -->
-		<fmt:formatNumber value="${x}" var="v1" maxFractionDigits="5" />
-		<p><c:out value="v1 = ${v1}"/></p>
-		<p><c:out value="Length of v1 = ${fn:length(v1)}"/></p>
-		<hr>
-		
-		<!-- Parse Number Demo -->
-		<fmt:parseNumber value="${x}" var="v2" integerOnly="true"></fmt:parseNumber>
-		<p><c:out value="v2 = ${v2}"/></p>
-		<c:catch var="exp">
-			<p><c:out value="Length of v2 = ${fn:length(v2)}"/></p>
-		</c:catch>S
-		<c:if test="${exp!=null}">
-			<p><c:out value="${exp}"/></p>
-		</c:if>
-		<hr>
-		
-		<!-- Parse Date Demo -->
-		<c:set var="x" value="15-08-2023" />
-		<fmt:parseDate value="${x}" var="v3" pattern="dd-MM-yyyy" />
-		<p><c:out value="v3 = ${v3}"/></p>
-		<c:catch var="exp">
-			<p><c:out value="Length of v3 = ${fn:length(v3)}"/></p>
-		</c:catch>
-		<c:if test="${exp!=null}">
-			<p><c:out value="${exp}"/></p>
-		</c:if>
-		<hr>
-		
-		<!-- Format Date Demo -->
-		<fmt:formatDate value="${v3}" var="v4" pattern="dd/MM/yyyy"/>
-		<p><c:out value="v4 = ${v4}"/></p>
-		<p><c:out value="Length of v4 = ${fn:length(v4)}"/></p>
-		<hr>
-		
+		<!-- Transaction, update (insert), param tag demo -->
+		<sql:transaction dataSource="${ds}">
+			<sql:update>insert into students(firstname,lastname) values(?,?);
+				<sql:param value="Pritam" />
+				<sql:param value="Saha" />
+			</sql:update>
 
-		
+			<sql:update>insert into students(firstname,lastname) values(?,?);
+				<sql:param value="Aditya" />
+				<sql:param value="Ghosh" />
+			</sql:update>
 
+			<sql:update>insert into students(firstname,lastname) values(?,?);
+				<sql:param value="Gunjan" />
+				<sql:param value="Nath" />
+			</sql:update>
+
+			<sql:update>insert into students(firstname,lastname) values(?,?);
+				<sql:param value="Sagar" />
+				<sql:param value="Gharami" />
+			</sql:update>
+		</sql:transaction>
+
+		<!-- Query tag demo -->
+		<sql:query var="rs" dataSource="${ds}">
+			select * from students;
+		</sql:query>
+		
+		<h4>Table After Insertion Of New Data</h4>
+		<table style="border:2px solid black;width:100%;text-align:center">
+			<tr style="border:2px solid black;">
+				<th style="border:2px solid black;">Roll No</th>
+				<th style="border:2px solid black;">First Name</th>
+				<th style="border:2px solid black;">Last Name</th>
+			</tr>
+			
+			<c:forEach var="row" items="${rs.rows}">
+				<tr style="border:2px solid black;">
+					<td style="border:2px solid black;">${row.rollno}</td>
+					<td style="border:2px solid black;">${row.firstname}</td>
+					<td style="border:2px solid black;">${row.lastname}</td>
+				</tr>
+			</c:forEach>
+		</table>
+		
+		
+		
+		
+		<!-- Transaction, update (update), param tag demo -->
+		<sql:transaction dataSource="${ds}">
+			<sql:update>update students set firstname=?, lastname=? where rollno=?;
+				<sql:param value="Agradip" />
+				<sql:param value="Banik" />
+				<sql:param value="4" />
+			</sql:update>
+		</sql:transaction>
+		
+		<!-- Query tag demo -->
+		<sql:query var="rs" dataSource="${ds}">
+			select * from students;
+		</sql:query>
+		
+		<h4><br><br>Table After Updating Data</h4>
+		<table style="border:2px solid black;width:100%;text-align:center">
+			<tr style="border:2px solid black;">
+				<th style="border:2px solid black;">Roll No</th>
+				<th style="border:2px solid black;">First Name</th>
+				<th style="border:2px solid black;">Last Name</th>
+			</tr>
+			
+			<c:forEach var="row" items="${rs.rows}">
+				<tr style="border:2px solid black;">
+					<td style="border:2px solid black;">${row.rollno}</td>
+					<td style="border:2px solid black;">${row.firstname}</td>
+					<td style="border:2px solid black;">${row.lastname}</td>
+				</tr>
+			</c:forEach>
+		</table>
+		
+		
+		
+		<!-- Transaction, update (delete), param tag demo -->
+		<sql:transaction dataSource="${ds}">
+			<sql:update>delete from students where rollno=?;
+				<sql:param value="4" />
+			</sql:update>
+		</sql:transaction>
+		
+		<!-- Query tag demo -->
+		<sql:query var="rs" dataSource="${ds}">
+			select * from students;
+		</sql:query>
+		
+		<h4><br><br>Table After Deleting Data</h4>
+		<table style="border:2px solid black;width:100%;text-align:center">
+			<tr style="border:2px solid black;">
+				<th style="border:2px solid black;">Roll No</th>
+				<th style="border:2px solid black;">First Name</th>
+				<th style="border:2px solid black;">Last Name</th>
+			</tr>
+			
+			<c:forEach var="row" items="${rs.rows}">
+				<tr style="border:2px solid black;">
+					<td style="border:2px solid black;">${row.rollno}</td>
+					<td style="border:2px solid black;">${row.firstname}</td>
+					<td style="border:2px solid black;">${row.lastname}</td>
+				</tr>
+			</c:forEach>
+		</table>
 	</div>
 </body>
 </html>
