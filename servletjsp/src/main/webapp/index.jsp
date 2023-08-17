@@ -1,6 +1,5 @@
 
 <%@ page isELIgnored="false"%>
-<%@ taglib uri="/WEB-INF/customtag.tld" prefix="customTag"%>
 <html>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
@@ -12,10 +11,18 @@
 	integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
 	crossorigin="anonymous"></script>
 <body style="background: #FBFCF8">
-	<div class="container text-center">
-		<customTag:myCustomTagThree end="10" var="x" step="2" start="0">
-			<h4>${x}</h4>
-		</customTag:myCustomTagThree>
+	<div class="container">
+		<form action="result.jsp" method="get">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Enter number one" name="num1">
+			</div>
+			
+			<div class="form-group mt-3">
+				<input type="text" class="form-control" placeholder="Enter number two" name="num2">
+			</div>
+			
+			<button type="submit" class="btn btn-primary mt-3">Do Division</button>
+		</form>
 	</div>
 </body>
 </html>
