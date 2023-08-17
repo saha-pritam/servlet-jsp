@@ -27,7 +27,7 @@ public class CustomTagOne extends TagSupport {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return EVAL_PAGE;
+		return SKIP_PAGE;
 	}
 
 	@Override
@@ -38,7 +38,7 @@ public class CustomTagOne extends TagSupport {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return SKIP_BODY;
+		return EVAL_BODY_INCLUDE;
 	}
 
 }
