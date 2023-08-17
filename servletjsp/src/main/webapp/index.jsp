@@ -12,7 +12,8 @@
 	crossorigin="anonymous"></script>
 <body style="background: #FBFCF8">
 	<div class="container">
-		<form action="result.jsp" method="get">
+		<!-- Mentioning servlet url pattern instead of jsp name -->
+		<form action="result" method="post">
 			<div class="form-group">
 				<input type="text" class="form-control" placeholder="Enter number one" name="num1">
 			</div>
