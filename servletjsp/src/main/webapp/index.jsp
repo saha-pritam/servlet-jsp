@@ -11,19 +11,12 @@
 	integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
 	crossorigin="anonymous"></script>
 <body style="background: #FBFCF8">
-	<div class="container">
-		<!-- Mentioning servlet url pattern instead of jsp name -->
-		<form action="result" method="post">
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Enter number one" name="num1">
-			</div>
-			
-			<div class="form-group mt-3">
-				<input type="text" class="form-control" placeholder="Enter number two" name="num2">
-			</div>
-			
-			<button type="submit" class="btn btn-primary mt-3">Do Division</button>
-		</form>
+	<div class="container text-center">
+		<h1>Home Page</h1>
+		
+		<a href="servlet">Go To Servlet</a>
+		<a href="result.jsp" class="ms-3">Go To result.jsp</a>
+		
 	</div>
 </body>
 </html>

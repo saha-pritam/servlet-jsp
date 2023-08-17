@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<!-- If error occurs it will redirect to error.jsp     -->
-<%@page errorPage="error.jsp"%>
 <!DOCTYPE html>
 <html>
 <link
@@ -18,8 +16,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1 class="display-1">
-		Result =
-		<%=Integer.parseInt(request.getParameter("num1")) / Integer.parseInt(request.getParameter("num2"))%></h1>
+	<%
+	System.out.println("Hi I am from result.jsp");
+	response.sendRedirect("https://www.google.com");
+	%>
 </body>
 </html>

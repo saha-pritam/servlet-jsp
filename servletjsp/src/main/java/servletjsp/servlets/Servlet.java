@@ -12,6 +12,7 @@ public class Servlet extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.getWriter().print("<h1>Hi "+req.getSession().getAttribute("user_email")+" this is next page.</h1>");
+		System.out.println("Hi I am from Servlet");
+		resp.sendRedirect("https://www.google.com");
 	}
 }
