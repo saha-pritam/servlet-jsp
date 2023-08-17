@@ -30,4 +30,32 @@
 			<type>int</type>
 		</attribute>
 	</tag>
+	
+		<tag>
+		<name>myCustomTagThree</name>
+		<tag-class>servletjsp.tags.CustomTagThree</tag-class>
+		<attribute>
+			<name>start</name>
+			<required>true</required>
+			<type>int</type>
+		</attribute>
+		
+		<attribute>
+			<name>end</name>
+			<required>true</required>
+			<type>int</type>
+		</attribute>
+		
+		<attribute>
+			<name>step</name>
+			<required>true</required>
+			<type>int</type>
+		</attribute>
+		
+		<attribute>
+			<name>var</name>
+			<required>true</required>
+			<type>String</type>
+		</attribute>
+	</tag>
 </taglib>  

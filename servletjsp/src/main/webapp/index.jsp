@@ -13,7 +13,9 @@
 	crossorigin="anonymous"></script>
 <body style="background: #FBFCF8">
 	<div class="container text-center">
-		<customTag:myCustomTagTwo x="10" y="20"/>
+		<customTag:myCustomTagThree end="10" var="x" step="2" start="0">
+			<h4>${x}</h4>
+		</customTag:myCustomTagThree>
 	</div>
 </body>
 </html>
