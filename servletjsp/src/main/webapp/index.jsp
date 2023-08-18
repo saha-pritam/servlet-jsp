@@ -14,7 +14,7 @@
 	<div class="container">
 		<h1 class="text-center">Home Page</h1>
 
-		<form method="get" action="servletOne">
+		<form method="get" action="page1.jsp">
 			<div class="form-group">
 				<label for="exampleInputEmail1">Enter your name</label> 
 				<input type="text" class="form-control" placeholder="Enter your name" name="name">
@@ -22,8 +22,8 @@
 			<button type="submit" class="btn btn-primary mt-3">Submit</button>
 		</form>
 		
-		<a href="servletOne">Servlet One</a>
-		<a href="servletTwo" class="ms-3">Servlet Two</a>
+		<a href="page1.jsp">Page1.jsp</a>
+		<a href="page2.jsp" class="ms-3">Page2.jsp</a>
 	</div>
 </body>
 </html>
