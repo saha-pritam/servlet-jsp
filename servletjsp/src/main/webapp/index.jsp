@@ -11,12 +11,21 @@
 	integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
 	crossorigin="anonymous"></script>
 <body style="background: #FBFCF8">
-	<div class="container text-center">
-		<h1>Home Page</h1>
-		
-		<a href="servlet">Go To Servlet</a>
-		<a href="result.jsp" class="ms-3">Go To result.jsp</a>
-		
+	<div class="container">
+		<h1 class="text-center">Login</h1>
+
+		<form method="post" action="login">
+			<div class="form-group">
+				<label for="exampleInputEmail1">Email address</label> 
+				<input type="email" class="form-control" placeholder="Enter email" name="user_email">
+			</div>
+			<div class="form-group mt-3">
+				<label for="exampleInputPassword1">Password</label> 
+				<input type="password" class="form-control" placeholder="Password" name="user_password">
+			</div>
+			<button type="submit" class="btn btn-primary mt-3">Login</button>
+		</form>
+
 	</div>
 </body>
 </html>

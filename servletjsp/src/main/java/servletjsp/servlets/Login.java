@@ -12,9 +12,11 @@ public class Login extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getSession().setAttribute("user_email", req.getParameter("user_email"));
-		resp.getWriter().print("<h1>Hi "+req.getParameter("user_email")+" you have successfully logged in.</h1>");
-		resp.getWriter().print("<a href=\"servlet\">Go To Next Page</a>");
-	
+		if(req.getParameter("user_email").equals("saha.pritam.work@gmail.com") && req.getParameter("user_password").equals("abcd"))
+			req.getSession().setAttribute("user_email", req.getParameter("user_email"));
+		else
+			resp.sendRedirect("index.jsp");
+		resp.getWriter().print("<h1>Hi "+req.getSession().getAttribute("user_email")+" you have successfully logged in.</h1>");
+		resp.getWriter().print("<a href=\"result.jsp\">Go To Result Page</a>");
 	}
 }

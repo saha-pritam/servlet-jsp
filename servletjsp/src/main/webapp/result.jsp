@@ -16,9 +16,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
-	System.out.println("Hi I am from result.jsp");
-	response.sendRedirect("https://www.google.com");
-	%>
+	<h1 class="display-4">Hi <%=session.getAttribute("user_email") %> I Am Next Page.</h1>
 </body>
 </html>
