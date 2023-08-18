@@ -12,20 +12,18 @@
 	crossorigin="anonymous"></script>
 <body style="background: #FBFCF8">
 	<div class="container">
-		<h1 class="text-center">Login</h1>
+		<h1 class="text-center">Home Page</h1>
 
-		<form method="post" action="login">
+		<form method="get" action="servletOne">
 			<div class="form-group">
-				<label for="exampleInputEmail1">Email address</label> 
-				<input type="email" class="form-control" placeholder="Enter email" name="user_email">
+				<label for="exampleInputEmail1">Enter your name</label> 
+				<input type="text" class="form-control" placeholder="Enter your name" name="name">
 			</div>
-			<div class="form-group mt-3">
-				<label for="exampleInputPassword1">Password</label> 
-				<input type="password" class="form-control" placeholder="Password" name="user_password">
-			</div>
-			<button type="submit" class="btn btn-primary mt-3">Login</button>
+			<button type="submit" class="btn btn-primary mt-3">Submit</button>
 		</form>
-
+		
+		<a href="servletOne">Servlet One</a>
+		<a href="servletTwo" class="ms-3">Servlet Two</a>
 	</div>
 </body>
 </html>
